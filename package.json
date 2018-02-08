@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mattzakutny/skumavka-api/issues"
   },
-  "homepage": "https://github.com/mattzakutny/skumavka-api#readme"
+  "homepage": "https://github.com/mattzakutny/skumavka-api#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
