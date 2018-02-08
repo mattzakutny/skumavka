@@ -1,0 +1,19 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "skumavka-api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattzakutny/skumavka-api.git"
+  },
+  "author": "marian zakutny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattzakutny/skumavka-api/issues"
+  },
+  "homepage": "https://github.com/mattzakutny/skumavka-api#readme"
+}
