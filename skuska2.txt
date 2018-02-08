@@ -1,3 +1,7 @@
 Musime sa spravat slusne
+<<<<<<< HEAD
 
 Zmena Dominik
+=======
+zmena mena
+>>>>>>> f1e7dbbde6a8c35d4c61d530702a58ff1f1dd100
