@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 var morgan = require('morgan');
 
 // configure app
-app.use(morgan('dev')); // log requests to the console
+// app.use(morgan('dev')); // log requests to the console
 
 var client = require('redis').createClient(process.env.REDIS_URL);
 
