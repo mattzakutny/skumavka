@@ -3,22 +3,39 @@ const app = express();
 const port = process.env.PORT || 20000;
 const Item = require("./api/models/skumavkaModel");
 const bodyParser = require('body-parser');
+var morgan = require('morgan');
+
+// configure app
+app.use(morgan('dev')); // log requests to the console
 
 var client = require('redis').createClient(process.env.REDIS_URL);
-
-// get our server running
-
-app.listen(port); 
-console.log('App running on ' + port);
 
 // handle incoming requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// middleware to handle wrong routes 
-app.use( (req, res) => {
-    res.status(404).send({ url: req.originalUrl + 'not found' });
+// ROUTES FOR OUR API
+// =============================================================================
+
+// create our router
+var router = express.Router();
+
+// middleware to use for all requests
+router.use(function(req, res, next) {
+	// do logging
+	console.log('Something is happening.');
+	next();
 });
 
-let routes = require("./api/routes/skumavkaRoutes");
-routes(app); // register our routes
+// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+router.get('/', function(req, res) {
+	res.json({ message: 'hooray! welcome to our api!' });	
+});
+
+// REGISTER OUR ROUTES -------------------------------
+app.use('/api', router);
+
+// START THE SERVER
+// =============================================================================
+app.listen(port);
+console.log('Magic happens on port ' + port);
