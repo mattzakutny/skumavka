@@ -5,6 +5,6 @@ exports.createItem = (req, res) => {
         if (err)
             res.send(err);
         
-        res.json(item);
+        res.json({ message: 'item created!' });
     });
 };

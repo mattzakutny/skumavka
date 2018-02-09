@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 20000;
-const Item = require("./api/models/skumavkaModel.js");
+const Item = require("./api/models/skumavkaModel");
 const bodyParser = require('body-parser');
 
 var client = require('redis').createClient(process.env.REDIS_URL);
@@ -20,5 +20,5 @@ app.use( (req, res) => {
     res.status(404).send({ url: req.originalUrl + 'not found' });
 });
 
-let routes = require("./api/routes/skumavkaRoutes.js");
+let routes = require("./api/routes/skumavkaRoutes");
 routes(app); // register our routes
