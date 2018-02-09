@@ -7,7 +7,7 @@ var morgan = require('morgan');
 // configure app
 // app.use(morgan('dev')); // log requests to the console
 
-var client = require('redis').createClient(process.env.REDIS_URL);
+var redisclient = require('redis').createClient(process.env.REDIS_URL);
 
 // handle incoming requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,6 +28,7 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
+	redisclient.set('meno', 'mato');	
 	res.json({ message: 'hooray! welcome to our api!' });	
 });
 
