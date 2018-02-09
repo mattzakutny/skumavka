@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 var client = require('redis').createClient(process.env.REDIS_URL);
 
 // get our server running
-app.listen(port, () => {
-    console.log("App up and running on" + port);
-});
+
+app.listen(port); 
+console.log('App running on ' + port);
 
 // handle incoming requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +22,3 @@ app.use( (req, res) => {
 
 let routes = require("./api/routes/skumavkaRoutes");
 routes(app); // register our routes
-
-app.listen(port); 
-console.log('App running on ' + port);
