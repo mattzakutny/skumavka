@@ -37,7 +37,7 @@ router.route('/submititem')
 
 	// create an item (accessed at POST http://localhost:8080/submititem)
 	.post(function(req, res) {
-		redisclient.set('data', req);
+		redisclient.set('data', JSON.stringify(req));
 	})
 
 // REGISTER OUR ROUTES -------------------------------
