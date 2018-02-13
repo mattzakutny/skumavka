@@ -37,7 +37,7 @@ router.route('/submititem')
 
 	// create an item (accessed at POST http://localhost:8080/submititem)
 	.post(function(req, res) {
-		var obsah = res.send(req.body);
+		var obsah = req.body;
 		redisclient.set('data', JSON.stringify(obsah));
 	})
 
