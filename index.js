@@ -28,7 +28,6 @@ router.use(function(req, res, next) {
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {
-	redisclient.set('data', iosvalue);	
 	res.json({ message: 'hooray! welcome to our api!' });	
 });
 
@@ -38,18 +37,7 @@ router.route('/submititem')
 
 	// create an item (accessed at POST http://localhost:8080/submititem)
 	.post(function(req, res) {
-		
-		var iosmodel = new EastPalo();		// create a new instance of the iOs model
-		iosmodel.name = req.body.name;  // set the iosmodels name (comes from the request)
-
-		iosmodel.save(function(err) {
-			if (err)
-				res.send(err);
-
-			res.json({ message: 'iosmodel created!' });
-		});
-
-		
+		redisclient.set('data', req);
 	})
 
 // REGISTER OUR ROUTES -------------------------------
