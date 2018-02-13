@@ -39,6 +39,7 @@ router.route('/submititem')
 	.post(function(req, res) {
 		console.log(req.body);
 		redisclient.set('data', req.body.doredisu);
+		res.end();
 	});
 
 // REGISTER OUR ROUTES -------------------------------
